@@ -32,3 +32,21 @@ class CreateCartTable extends Migration
         Schema::dropIfExists('cart');
     }
 }
+
+
+
+ $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('product_id')->constrained()->onDelete('cascade');
+            $table->integer('product_quantity');
+            $table->decimal('price', 8, 2); 
+            $table->timestamps();
+
+
+
+             $table->id();
+            $table->foreignId('order_id')->constrained()->onDelete('cascade');
+            $table->foreignId('product_id')->constrained()->onDelete('cascade');
+            $table->integer('qty');
+            $table->decimal('price', 8, 2);
+            $table->timestamps();
